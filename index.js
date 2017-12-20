@@ -5,24 +5,30 @@
 // Alows the progam to call command line programs
 var spawn = require("child_process").spawn;
 
+// Checks light state
+var state = "";
+var process = spawn('python3',["getLight.py"]);
+
+process.stdout.on('data', function(data) {
+   console.log("Got data from Python");
+   console.log(data.toString());
+   state = data.toString();
+});
+
 // Runs "ledOn.py" which turns on the light
 function lightOn () {
     var process = spawn('python3',["ledOn.py"]);
+    state = "ON";
 }
 
 // Runs "ledOff.py" which turns off the light
 function lightOff () {
     var process = spawn('python3',["ledOff.py"]);
+    state = "OFF";
 }
 
 function getLight () {
-    var process = spawn('python3',["ledOff.py"]);
-
-    process.stdout.on('data', function(data) {
-      console.log("Got data from Python");
-      console.log(data.toString());
-      return data.toString();
-    });
+    return state;
 }
 
 /*
@@ -50,7 +56,8 @@ app.post("/changeLight", function (req, res) {
   }
 });
 
-app.get("/getLight", function (req, res) {
+app.post("/getLight", function (req, res) {
+  console.log(getLight());
   res.send(getLight());
 });
 
