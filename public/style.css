@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton');
+
+h1 {
+  font-family: 'Monoton', cursive;
+  text-align: center;
+  padding: 20px;
+  font-size: 80px;
+  padding-top: 150px;
+}
+
+.light {
+  width: 100%;
+  text-align: center;
+}
+
+.light img {
+  width: 20%;
+  margin: auto;
+  padding-top: 20px;
+  cursor: pointer;
+}
