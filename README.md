@@ -5,3 +5,5 @@ When deployed on a Raspberry Pi, this will run a bog-standard node web-server, w
 I recomend using using something between the GPIO and the load of the lights for example a motor controller or relay.
 
 We are not responsible for the ultimate safety of your pi. Thank-you.
+
+![Lightbulb](https://i.imgur.com/OSvqQit.png)
